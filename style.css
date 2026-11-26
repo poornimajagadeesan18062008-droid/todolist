@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+        radial-gradient(circle at 15% 20%, #a78bfa 0%, transparent 30%),
+        radial-gradient(circle at 85% 80%, #7e22ce 0%, transparent 35%),
+        linear-gradient(135deg, #100522, #29104b, #16052f);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Background stars */
+
+.stars {
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    color: #e9d5ff;
+    font-size: 30px;
+    letter-spacing: 30px;
+    opacity: 0.7;
+    pointer-events: none;
+    text-shadow: 0 0 15px #d8b4fe;
+}
+
+/* Main container */
+
+.todo-container {
+    width: 100%;
+    max-width: 750px;
+    padding: 40px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 50px rgba(168, 85, 247, 0.25);
+    position: relative;
+    z-index: 1;
+}
+
+/* Header */
+
+.header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.purple-heart {
+    font-size: 45px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 15px #c084fc);
+}
+
+.header h1 {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #f3e8ff;
+    text-shadow: 0 0 15px #c084fc;
+}
+
+.header p {
+    color: #e9d5ff;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.quote {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 7px 18px;
+    border: 1px solid #c084fc;
+    border-radius: 30px;
+    color: #e9d5ff;
+    font-size: 12px;
+}
+
+/* Task input */
+
+.task-input-section {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+input, select {
+    font-family: inherit;
+    padding: 13px;
+    border: 1px solid rgba(216, 180, 254, 0.5);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    outline: none;
+}
+
+input::placeholder {
+    color: #d8b4fe;
+}
+
+input:focus, select:focus {
+    border-color: #e9d5ff;
+    box-shadow: 0 0 10px rgba(192, 132, 252, 0.4);
+}
+
+#taskInput {
+    flex: 1;
+    min-width: 0;
+}
+
+button {
+    font-family: inherit;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+#addTaskBtn {
+    background: linear-gradient(135deg, #c084fc, #9333ea);
+    color: white;
+    box-shadow: 0 0 15px rgba(192, 132, 252, 0.4);
+}
+
+#addTaskBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px #c084fc;
+}
+
+/* Priority and date */
+
+.task-options {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.task-options select,
+.task-options input {
+    flex: 1;
+    min-width: 0;
+}
+
+select option {
+    color: #241039;
+}
+
+/* Search and filters */
+
+.task-controls {
+    margin-bottom: 25px;
+}
+
+#searchInput {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: rgba(255, 255, 255, 0.12);
+    color: #e9d5ff;
+    border: 1px solid rgba(216, 180, 254, 0.3);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #a855f7;
+    color: white;
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.5);
+}
+
+/* Task list */
+
+.tasks-section h2 {
+    font-size: 19px;
+    color: #e9d5ff;
+    margin-bottom: 15px;
+}
+
+#taskList {
+    list-style: none;
+}
+
+#taskList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(216, 180, 254, 0.2);
+    transition: 0.3s;
+}
+
+#taskList li:hover {
+    background: rgba(192, 132, 252, 0.18);
+    transform: translateX(4px);
+}
+
+.task-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.task-info h3 {
+    color: #fff;
+    font-size: 15px;
+    overflow-wrap: anywhere;
+}
+
+.task-info p {
+    color: #d8b4fe;
+    font-size: 11px;
+    margin-top: 6px;
+}
+
+.completed h3 {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.task-actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.task-actions button {
+    padding: 8px 10px;
+    font-size: 11px;
+}
+
+.complete-btn {
+    background: #a7f3d0;
+    color: #064e3b;
+}
+
+.edit-btn {
+    background: #fde68a;
+    color: #78350f;
+}
+
+.delete-btn {
+    background: #fda4af;
+    color: #881337;
+}
+
+.task-actions button:hover {
+    transform: scale(1.06);
+}
+
+/* Footer */
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(216, 180, 254, 0.3);
+}
+
+#taskCount {
+    color: #e9d5ff;
+    font-size: 13px;
+}
+
+#clearCompletedBtn {
+    background: #7e22ce;
+    color: white;
+}
+
+#clearCompletedBtn:hover {
+    background: #9333ea;
+    box-shadow: 0 0 15px #a855f7;
+}
+
+/* Bottom message */
+
+.footer-message {
+    text-align: center;
+    margin-top: 30px;
+    color: #e9d5ff;
+}
+
+.footer-message p {
+    font-size: 13px;
+}
+
+.footer-message span {
+    display: block;
+    margin-top: 8px;
+    font-size: 10px;
+    opacity: 0.7;
+}
+
+/* Mobile responsive design */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 20px 12px;
+    }
+
+    .todo-container {
+        padding: 25px 18px;
+    }
+
+    .header h1 {
+        font-size: 22px;
+    }
+
+    .task-input-section {
+        flex-direction: column;
+    }
+
+    .task-options {
+        flex-direction: column;
+    }
+
+    #taskList li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .task-actions {
+        width: 100%;
+    }
+}
